@@ -7,6 +7,7 @@
     <StackLayout>
 
         <local:ContentLayout/>
+        <Label Text="kontakti leht" ></Label>
 
     </StackLayout>
 </ContentPage>
