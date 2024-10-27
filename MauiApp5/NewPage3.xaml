@@ -7,7 +7,7 @@
     <StackLayout>
 
         <local:ContentLayout/>
-        <Label Text="Page 3"/>
+        <Label Text="Meist"/>
 
     </StackLayout>
 </ContentPage>
