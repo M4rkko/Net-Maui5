@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp5.ContentLayout">
     <HorizontalStackLayout VerticalOptions="Start" Margin="20" Spacing="30" Padding="20">
-        <Button Text="Item 1" Command="{Binding GoToCommand}" CommandParameter="Page-1"/>
+        <Button Text="Avaleht" Command="{Binding GoToCommand}" CommandParameter="Page-1"/>
         <Button Text="Item 2" Command="{Binding GoToCommand}" CommandParameter="Page-2"/>
         <Button Text="Item 3" Command="{Binding GoToCommand}" CommandParameter="Page-3"/>
         <Button Text="Item 4" Command="{Binding GoToCommand}" CommandParameter="Page-4"/>

@@ -7,9 +7,9 @@
     <StackLayout>
 
         <local:ContentLayout/>
-        <Label Text="Page 1" />
+        <Label Text="Avaleht" Padding="50" />
 
     </StackLayout>
     
 </ContentPage>
-    
+   
