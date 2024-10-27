@@ -6,7 +6,7 @@
         <Button Text="Avaleht" Command="{Binding GoToCommand}" CommandParameter="Page-1"/>
         <Button Text="Kontakt" Command="{Binding GoToCommand}" CommandParameter="Page-2"/>
         <Button Text="Meist" Command="{Binding GoToCommand}" CommandParameter="Page-3"/>
-        <Button Text="Item 4" Command="{Binding GoToCommand}" CommandParameter="Page-4"/>
+        <Button Text="Asukoht" Command="{Binding GoToCommand}" CommandParameter="Page-4"/>
         <Button Text="Item 5" Command="{Binding GoToCommand}" CommandParameter="Page-5"/>
     </HorizontalStackLayout>
 </ContentView>

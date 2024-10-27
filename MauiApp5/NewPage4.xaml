@@ -7,6 +7,6 @@
     <StackLayout>
 
         <local:ContentLayout/>
-
+        <Label Text="Asukoht" />
     </StackLayout>
 </ContentPage>
