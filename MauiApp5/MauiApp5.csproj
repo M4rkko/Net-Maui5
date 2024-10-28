@@ -63,13 +63,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Avaleht.xaml.cs">
+	    <DependentUpon>Avaleht.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Newpage2.xaml.cs">
+	    <DependentUpon>Newpage2.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="ContentLayout.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="NewPage1.xaml">
+	  <MauiXaml Update="Avaleht.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="NewPage2.xaml">
+	  <MauiXaml Update="Newpage2.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="NewPage3.xaml">
