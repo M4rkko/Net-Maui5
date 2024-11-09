@@ -7,7 +7,12 @@
     <StackLayout>
 
         <local:ContentLayout/>
-        <Label Text="kontakti leht" ></Label>
+        <Label Text="Flashcards
+               CRUD
+               CReate
+               Read
+               Edit
+               Delete" ></Label>
 
     </StackLayout>
 </ContentPage>
