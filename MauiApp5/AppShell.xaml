@@ -7,7 +7,7 @@
     Shell.FlyoutBehavior="Disabled"
     Title="MauiApp5">
 
-
+    <!-- tab navigation bar -->
     <TabBar>
         <Tab Title="Home" Icon="Home.png">
             <ShellContent Title="Home"
@@ -27,8 +27,8 @@
         </Tab>
         <Tab Title="Settings" Icon="Settings.png">
             <!-- teha prst õigkes kui olemas settings-->
-            <ShellContent Title="Create"
-                ContentTemplate="{DataTemplate local:FlashcardsPage}" Route="FlashcardsPage" >
+            <ShellContent Title="Settings"
+                ContentTemplate="{DataTemplate local:NewPage5}" Route="NewPage5" >
             </ShellContent>
         </Tab>
     </TabBar>
