@@ -6,20 +6,34 @@
     <ContentPage.Content>
         <StackLayout Padding="20">
             <Button Text="Add Flashcard Set" Margin="0,0,0,10" Clicked="OnAddFlashcardSetClicked" />
-
             <CollectionView ItemsSource="{Binding FlashcardSets}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Padding="20" Margin="100,100,100,100" BackgroundColor="LightGray">
-                            <Label VerticalOptions="Center" HorizontalOptions="StartAndExpand" Text="{Binding Name}" FontAttributes="Bold" />
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="20">
+                        <Grid Padding="20" Margin="10,10,0,10" BackgroundColor="LightGray">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            
+                            <!-- text -->
+                            <Label Grid.Column="0"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Start"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold" />
+                            
+                            <!-- buttons -->
+                            <StackLayout Grid.Column="1"
+                                         Orientation="Horizontal"
+                                         Spacing="20"
+                                         VerticalOptions="Center">
                                 <VerticalStackLayout VerticalOptions="Center">
                                     <ImageButton Source="Create.png"
                                                  WidthRequest="20"
                                                  HeightRequest="20"
                                                  Clicked="OnEditFlashcardSetClicked"
                                                  CommandParameter="{Binding .}" />
-                                    <Label Text="Edit" HorizontalOptions="Center"/>
+                                    <Label Text="Edit" HorizontalOptions="Center" />
                                 </VerticalStackLayout>
                                 <VerticalStackLayout VerticalOptions="Center">
                                     <ImageButton Source="Delete.png"
@@ -27,10 +41,10 @@
                                                  HeightRequest="20"
                                                  Clicked="OnDeleteFlashcardSetClicked"
                                                  CommandParameter="{Binding .}" />
-                                    <Label Text="Delete" HorizontalOptions="Center"/>
+                                    <Label Text="Delete" HorizontalOptions="Center" />
                                 </VerticalStackLayout>
                             </StackLayout>
-                        </StackLayout>
+                        </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
