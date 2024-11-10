@@ -1,8 +1,6 @@
 ## Ignore JSON storage file
 MauiApp5/Services/flashcardSets.json
 
-## Ignore .csproj
-MauiApp5/MauiApp5.csproj
 
 ## Other ignore rules
 bin/
