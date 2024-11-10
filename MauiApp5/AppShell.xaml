@@ -7,12 +7,29 @@
     Shell.FlyoutBehavior="Disabled"
     Title="MauiApp5">
 
-    <ShellContent
 
-        ContentTemplate="{DataTemplate local:HomePage}"
-        Route="HomePage" >
-
-    </ShellContent> 
-   
-            
+    <TabBar>
+        <Tab Title="Home" Icon="Home.png">
+            <ShellContent Title="Home"
+                ContentTemplate="{DataTemplate local:HomePage}" Route="HomePage" >
+            </ShellContent>
+        </Tab>
+        <Tab Title="Create" Icon="Create.png">
+            <ShellContent Title="Create"
+                ContentTemplate="{DataTemplate local:FlashcardsPage}" Route="FlashcardsPage" >
+            </ShellContent>
+        </Tab>
+        <Tab Title="Play btn" Icon="Play.png">
+            <!-- teha prst õigeks kui olemas play funct-->
+            <ShellContent Title="Create"
+                ContentTemplate="{DataTemplate local:FlashcardsPage}" Route="FlashcardsPage" >
+            </ShellContent>
+        </Tab>
+        <Tab Title="Settings" Icon="Settings.png">
+            <!-- teha prst õigkes kui olemas settings-->
+            <ShellContent Title="Create"
+                ContentTemplate="{DataTemplate local:FlashcardsPage}" Route="FlashcardsPage" >
+            </ShellContent>
+        </Tab>
+    </TabBar>
 </Shell>
