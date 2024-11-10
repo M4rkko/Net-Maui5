@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using MauiApp5.Views;
 
 namespace MauiApp5
 {
@@ -20,11 +21,11 @@ namespace MauiApp5
             switch (pageName)
             {
                 case "Page-1":
-                    await Navigation.PushAsync(new NewPage1());
+                    await Navigation.PushAsync(new HomePage());
                     break;
 
                 case "Page-2":
-                    await Navigation.PushAsync(new NewPage2());
+                    await Navigation.PushAsync(new FlashcardsPage());
                     break;
 
                 case "Page-3":
