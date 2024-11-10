@@ -1,16 +1,29 @@
 using System.Collections.ObjectModel;
 using MauiApp5.Models;
+using MauiApp5.Services;
+using Microsoft.Maui.Controls;
 
 namespace MauiApp5.Views
 {
     public partial class FlashcardsPage : ContentPage
     {
+        private readonly FlashcardStorageService _storageService = new FlashcardStorageService();
         public ObservableCollection<FlashcardSet> FlashcardSets { get; set; } = new ObservableCollection<FlashcardSet>();
 
         public FlashcardsPage()
         {
             InitializeComponent();
             BindingContext = this;
+            LoadFlashcardSets();
+        }
+
+        private async void LoadFlashcardSets()
+        {
+            var sets = await _storageService.LoadFlashcardSetsAsync();
+            foreach (var set in sets)
+            {
+                FlashcardSets.Add(set);
+            }
         }
 
         private async void OnAddFlashcardSetClicked(object sender, EventArgs e)
@@ -25,6 +38,7 @@ namespace MauiApp5.Views
             if (confirm)
             {
                 FlashcardSets.Remove(flashcardSet);
+                await _storageService.SaveFlashcardSetsAsync(FlashcardSets.ToList());
             }
         }
     }
