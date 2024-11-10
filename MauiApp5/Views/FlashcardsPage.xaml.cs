@@ -41,6 +41,11 @@ namespace MauiApp5.Views
                 await _storageService.SaveFlashcardSetsAsync(FlashcardSets.ToList());
             }
         }
+        private async void OnEditFlashcardSetClicked(object sender, EventArgs e)
+        {
+            var flashcardSet = (FlashcardSet)((Button)sender).CommandParameter;
+            await Navigation.PushAsync(new EditFlashcardsPage(flashcardSet));
+        }
     }
 }
 

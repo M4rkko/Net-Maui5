@@ -13,6 +13,7 @@
                         <StackLayout Padding="10" Margin="0,10,0,0" BackgroundColor="LightGray">
                             <Label Text="{Binding Name}" FontAttributes="Bold" />
                             <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                <Button Text="Edit" Clicked="OnEditFlashcardSetClicked" CommandParameter="{Binding .}" />
                                 <Button Text="Delete" Clicked="OnDeleteFlashcardSetClicked" CommandParameter="{Binding .}" />
                             </StackLayout>
                         </StackLayout>
