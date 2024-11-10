@@ -1,4 +1,4 @@
-namespace MauiApp5;
+namespace MauiApp5.Views;
 
 public partial class NewPage3 : ContentPage
 {

@@ -72,7 +72,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="AddFlashcardsPage.xaml">
+	  <MauiXaml Update="Views\AddFlashcardsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ContentLayout.xaml">
@@ -81,19 +81,19 @@
 	  <MauiXaml Update="Avaleht.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="EditFlashcardsPage.xaml">
+	  <MauiXaml Update="Views\EditFlashcardsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Newpage2.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="NewPage3.xaml">
+	  <MauiXaml Update="Views\NewPage3.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="NewPage4.xaml">
+	  <MauiXaml Update="Views\NewPage4.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="NewPage5.xaml">
+	  <MauiXaml Update="Views\NewPage5.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
