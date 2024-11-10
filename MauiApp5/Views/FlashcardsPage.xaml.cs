@@ -33,7 +33,7 @@ namespace MauiApp5.Views
 
         private async void OnDeleteFlashcardSetClicked(object sender, EventArgs e)
         {
-            var flashcardSet = (FlashcardSet)((Button)sender).CommandParameter;
+            var flashcardSet = (FlashcardSet)((ImageButton)sender).CommandParameter;
             bool confirm = await DisplayAlert("Confirm Delete", "Are you sure you want to delete this flashcard set?", "Yes", "No");
             if (confirm)
             {
@@ -43,7 +43,7 @@ namespace MauiApp5.Views
         }
         private async void OnEditFlashcardSetClicked(object sender, EventArgs e)
         {
-            var flashcardSet = (FlashcardSet)((Button)sender).CommandParameter;
+            var flashcardSet = (FlashcardSet)((ImageButton)sender).CommandParameter;
             await Navigation.PushAsync(new EditFlashcardsPage(flashcardSet));
         }
     }
