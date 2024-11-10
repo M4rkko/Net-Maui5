@@ -1,12 +1,16 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using MauiApp5.Models;
+using MauiApp5.Services;
 using Microsoft.Maui.Controls;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MauiApp5.Views
 {
     public partial class AddFlashcardsPage : ContentPage
     {
+        private readonly FlashcardStorageService _storageService = new FlashcardStorageService();
         public FlashcardSet NewFlashcardSet { get; set; } = new FlashcardSet();
         public ObservableCollection<FlashcardSet> FlashcardSets { get; }
 
@@ -19,7 +23,7 @@ namespace MauiApp5.Views
             FlashcardSets = flashcardSets;
 
             // Initialize command and bind context
-            SaveFlashcardSetCommand = new Command(OnSaveFlashcardSet);
+            SaveFlashcardSetCommand = new Command(async() => await OnSaveFlashcardSet());
             BindingContext = this;
 
             // Start with a new flashcard
@@ -35,11 +39,12 @@ namespace MauiApp5.Views
             }
         }
 
-        private async void OnSaveFlashcardSet()
+        private async Task OnSaveFlashcardSet()
         {
             if (!string.IsNullOrWhiteSpace(NewFlashcardSet.Name) && NewFlashcardSet.Flashcards.Any(f => !string.IsNullOrWhiteSpace(f.Question)))
             {
                 FlashcardSets.Add(NewFlashcardSet); // Save to the provided collection
+                await _storageService.SaveFlashcardSetsAsync(FlashcardSets.ToList()); // "Save all" to Storage
                 await Navigation.PopAsync(); // Navigate back
             }
             else
