@@ -4,12 +4,26 @@
              x:Class="MauiApp5.Views.NewPage5"
                      xmlns:local="clr-namespace:MauiApp5">
 
-    <StackLayout>
+    <VerticalStackLayout Padding="20">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
 
-        <local:ContentLayout/>
-        <Label Text="Settings
-               Dark Light mode kontakt info
-               midagi veel?" />
+            <!-- dark mode -->
+            <Label Text="Dark Mode"
+               FontSize="Medium"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"/>
 
-    </StackLayout>
+            <Switch IsToggled="{Binding IsDarkMode}" 
+                    VerticalOptions="Center"
+                    HorizontalOptions="End" />
+        </Grid>
+
+    </VerticalStackLayout>
 </ContentPage>
