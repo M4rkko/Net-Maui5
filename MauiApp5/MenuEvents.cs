@@ -1,5 +1,7 @@
 ﻿using System.Windows.Input;
 using MauiApp5.Views;
+using System.Collections.ObjectModel;
+using MauiApp5.Models;
 
 namespace MauiApp5
 {
@@ -7,17 +9,18 @@ namespace MauiApp5
     {
         public ICommand GoToCommand { get; }
         public INavigation Navigation { get; set; }
-        public MenuEvents(INavigation navigation)
+        private ObservableCollection<Flashcard> flashcards; // Lisa privaatne väli flashcards
+
+        // Uuendatud konstruktor
+        public MenuEvents(INavigation navigation, ObservableCollection<Flashcard> flashcards)
         {
             GoToCommand = new Command<string>(GoToPage);
             Navigation = navigation;
+            this.flashcards = flashcards; // Määra flashcards privaatsele väljal
         }
+
         private async void GoToPage(string pageName)
         {
-            ////if (pageName.CompareTo("Page-3") == 0)
-            //{
-                //await Navigation.PushAsync(new NewPage3());
-            //}
             switch (pageName)
             {
                 case "Page-1":
@@ -26,6 +29,10 @@ namespace MauiApp5
 
                 case "Page-2":
                     await Navigation.PushAsync(new FlashcardsPage());
+                    break;
+
+                case "FlashcardsPlay":
+                    await Navigation.PushAsync(new FlashcardsPlay(flashcards)); // Edasta flashcards siin
                     break;
 
                 case "Page-3":

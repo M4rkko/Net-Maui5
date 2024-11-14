@@ -2,11 +2,11 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp5.ContentLayout">
-    <HorizontalStackLayout VerticalOptions="Start" Margin="20" Spacing="30" Padding="20">
+    <VerticalStackLayout VerticalOptions="Start" Margin="10" Spacing="10" Padding="10">
         <Button Text="Avaleht" Command="{Binding GoToCommand}" CommandParameter="Page-1"/>
         <Button Text="Create Flashcards" Command="{Binding GoToCommand}" CommandParameter="Page-2"/>
         <Button Text="Play Flashcards" Command="{Binding GoToCommand}" CommandParameter="Page-3"/>
         <Button Text="To Do List" Command="{Binding GoToCommand}" CommandParameter="Page-4"/>
         <Button Text="Settings" Command="{Binding GoToCommand}" CommandParameter="Page-5"/>
-    </HorizontalStackLayout>
+    </VerticalStackLayout>
 </ContentView>

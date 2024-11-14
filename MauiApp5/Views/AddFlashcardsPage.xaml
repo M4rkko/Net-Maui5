@@ -2,24 +2,26 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp5.Views.AddFlashcardsPage"
-             Title="Add Flashcards">
+             Title="Create Flashcard">
     <ContentPage.Content>
-        <StackLayout Padding="20">
-            <Entry Placeholder="Enter Set Name" Text="{Binding NewFlashcardSet.Name}" />
+        <ScrollView>
+            <VerticalStackLayout Padding="20">
+                <Entry Placeholder="Enter Set Name" Text="{Binding NewFlashcardSet.Name}" />
 
-            <CollectionView ItemsSource="{Binding NewFlashcardSet.Flashcards}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout Margin="0,10,0,0">
-                            <Label Text="{Binding Number}" FontAttributes="Bold" />
-                            <Entry Text="{Binding Question}" Placeholder="Enter question" TextChanged="OnQuestionTextChanged" />
-                            <Entry Text="{Binding Answer}" Placeholder="Enter answer" />
-                        </StackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                <CollectionView ItemsSource="{Binding NewFlashcardSet.Flashcards}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Margin="0,10,0,0">
+                                <Label Text="{Binding Number}" FontAttributes="Bold" />
+                                <Entry Text="{Binding Question}" Placeholder="Enter question" TextChanged="OnQuestionTextChanged" />
+                                <Entry Text="{Binding Answer}" Placeholder="Enter answer" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
 
-            <Button Text="Save Flashcard Set" Command="{Binding SaveFlashcardSetCommand}" />
-        </StackLayout>
+                <Button Text="Save Flashcard Set" Command="{Binding SaveFlashcardSetCommand}" />
+            </VerticalStackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

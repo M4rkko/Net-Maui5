@@ -19,12 +19,6 @@
                 ContentTemplate="{DataTemplate local:FlashcardsPage}" Route="FlashcardsPage" >
             </ShellContent>
         </Tab>
-        <Tab Title="Play btn" Icon="Play.png">
-            <!-- teha prst õigeks kui olemas play funct-->
-            <ShellContent Title="Create"
-                ContentTemplate="{DataTemplate local:FlashcardsPage}" Route="FlashcardsPage" >
-            </ShellContent>
-        </Tab>
         <Tab Title="Settings" Icon="Settings.png">
             <!-- teha prst õigkes kui olemas settings-->
             <ShellContent Title="Settings"
