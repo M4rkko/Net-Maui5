@@ -12,10 +12,10 @@ public partial class ContentLayout : ContentView
     {
         InitializeComponent();
 
-        // Loo flashcards objekt
+        // loob flashcards objekti
         flashcards = new ObservableCollection<Flashcard>();
 
-        // Edasta nii Navigation kui ka flashcards MenuEvents konstruktorisse
+        // edastab nii Navigation kui ka flashcards MenuEvents konstruktorisse
         BindingContext = new MenuEvents(Navigation, flashcards);
     }
 }

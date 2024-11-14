@@ -9,14 +9,13 @@ namespace MauiApp5
     {
         public ICommand GoToCommand { get; }
         public INavigation Navigation { get; set; }
-        private ObservableCollection<Flashcard> flashcards; // Lisa privaatne väli flashcards
+        private ObservableCollection<Flashcard> flashcards;
 
-        // Uuendatud konstruktor
         public MenuEvents(INavigation navigation, ObservableCollection<Flashcard> flashcards)
         {
             GoToCommand = new Command<string>(GoToPage);
             Navigation = navigation;
-            this.flashcards = flashcards; // Määra flashcards privaatsele väljal
+            this.flashcards = flashcards;
         }
 
         private async void GoToPage(string pageName)
@@ -32,7 +31,7 @@ namespace MauiApp5
                     break;
 
                 case "FlashcardsPlay":
-                    await Navigation.PushAsync(new FlashcardsPlay(flashcards)); // Edasta flashcards siin
+                    await Navigation.PushAsync(new FlashcardsPlay(flashcards));
                     break;
 
                 case "Page-3":
