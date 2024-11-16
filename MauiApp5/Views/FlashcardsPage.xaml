@@ -16,14 +16,14 @@
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
 
-                                <!-- text -->
+                                <!-- tekst -->
                                 <Label Grid.Column="0"
                                        VerticalOptions="Center"
                                        HorizontalOptions="Start"
                                        Text="{Binding Name}"
                                        FontAttributes="Bold" />
 
-                                <!-- buttons -->
+                                <!-- nupud -->
                                 <StackLayout Grid.Column="1"
                                              Orientation="Horizontal"
                                              Spacing="20"

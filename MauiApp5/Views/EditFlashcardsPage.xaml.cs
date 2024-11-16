@@ -11,7 +11,7 @@ namespace MauiApp5.Views
         private readonly FlashcardStorageService _storageService = new FlashcardStorageService();
         public FlashcardSet FlashcardSet { get; set; }
 
-        // Command to save
+        // Salvestamine
         public ICommand SaveChangesCommand { get; }
 
         public EditFlashcardsPage(FlashcardSet flashcardSet)
@@ -20,9 +20,25 @@ namespace MauiApp5.Views
             FlashcardSet = flashcardSet;
             SaveChangesCommand = new Command(OnSaveChanges);
             BindingContext = this;
+
+            // Alati on vähemalt 1 Flashcard
+            if (FlashcardSet.Flashcards.Count == 0)
+            {
+                FlashcardSet.Flashcards.Add(new Flashcard { Number = 1 });
+            }
+            RenumberFlashcards();
+        }
+        // Pärast salvestamist, nummerdatakse kaardid uuesti
+        private void RenumberFlashcards()
+        {
+            int counter = 1;
+            foreach (var flashcard in FlashcardSet.Flashcards)
+            {
+                flashcard.Number = counter++;
+            }
         }
 
-        // Text change and Add new card if needed
+        // Flashcards muutmine ja uue lisamine vajadusel
         private void OnQuestionTextChanged(object sender, TextChangedEventArgs e)
         {
             var lastFlashcard = FlashcardSet.Flashcards[^1];
@@ -32,11 +48,27 @@ namespace MauiApp5.Views
             }
         }
 
-        // Save the changes to the flashcardSet
+        // Salvesta muutused
         private async void OnSaveChanges()
         {
             await _storageService.SaveFlashcardSetsAsync(new List<FlashcardSet> { FlashcardSet });
-            await Navigation.PopAsync(); // Go back to the previous page
+            await Navigation.PopAsync(); // Tagasi eelmisele lehele
         }
+
+        private void OnRemoveFlashcardClicked(object sender, EventArgs e)
+        {
+            var flashcard = (Flashcard)((Button)sender).CommandParameter;
+
+            // Kustuta Flashcard 
+            FlashcardSet.Flashcards.Remove(flashcard);
+
+            // Kui Flashcards = 0, Lisa uus flashcard
+            if (FlashcardSet.Flashcards.Count == 0)
+            {
+                FlashcardSet.Flashcards.Add(new Flashcard { Number = 1 });
+            }
+        }
+
+
     }
 }
