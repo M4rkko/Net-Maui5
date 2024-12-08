@@ -37,8 +37,10 @@ namespace MauiApp5.ViewModels
 			Preferences.Set("IsDarkMode", _isDarkMode);
 		}
 
-		public event PropertyChangedEventHandler PropertyChanged;
+		// Mark the PropertyChanged event as nullable
+		public event PropertyChangedEventHandler? PropertyChanged;
 
+		// Trigger the PropertyChanged event when a property value changes
 		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

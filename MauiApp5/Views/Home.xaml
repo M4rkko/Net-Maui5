@@ -4,13 +4,14 @@
              x:Class="MauiApp5.Views.HomePage"
              xmlns:local="clr-namespace:MauiApp5"
              Title="Appi nimi???">
-             
+
     <StackLayout>
-
         <local:ContentLayout/>
-        <Label Text="siia teksti/nuppe kütta" Padding="50" />
-        <Button Text="Play Flashcards/Start playing" Clicked="OnPlayFlashcardsButtonClicked" Margin="50,0,50,0" />
-
+        <Label Text="siia teksti/nuppe kütta" 
+               Padding="50" />
+        <Button Text="Play Flashcards/Start playing" 
+                Clicked="OnPlayFlashcardsButtonClicked" 
+                Margin="50,0,50,0" />
     </StackLayout>
     
 </ContentPage>
