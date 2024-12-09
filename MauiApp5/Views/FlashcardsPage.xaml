@@ -5,51 +5,76 @@
              Title="Flashcards">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Padding="20">
-                <Button Text="Add Flashcard Set" Margin="0,0,0,10" Clicked="OnAddFlashcardSetClicked" />
-                <CollectionView ItemsSource="{Binding FlashcardSets}">
+            <VerticalStackLayout Padding="20" Spacing="15">
+                <!-- add flashcard nupp -->
+                <Button Text="Add Flashcard Set"
+                        BackgroundColor="#3B82F6"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="10"
+                        HeightRequest="50"
+                        Clicked="OnAddFlashcardSetClicked" />
+
+                <!-- setide list -->
+                <CollectionView ItemsSource="{Binding FlashcardSets}" 
+                                Margin="0,10,0,0">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Padding="20" Margin="10,10,0,10" BackgroundColor="LightGray">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
+                            <Frame CornerRadius="10" 
+                                   BorderColor="LightGray" 
+                                   BackgroundColor="White" 
+                                   Padding="10" 
+                                   Margin="0,0,0,10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
 
-                                <!-- tekst -->
-                                <Label Grid.Column="0"
-                                       VerticalOptions="Center"
-                                       HorizontalOptions="Start"
-                                       Text="{Binding Name}"
-                                       FontAttributes="Bold" />
+                                    <Label Grid.Column="0"
+                                           Text="{Binding Name}"
+                                           FontAttributes="Bold"
+                                           FontSize="18"
+                                           VerticalOptions="Center"
+                                           TextColor="#333" />
 
-                                <!-- nupud -->
-                                <StackLayout Grid.Column="1"
-                                             Orientation="Horizontal"
-                                             Spacing="20"
-                                             VerticalOptions="Center">
-                                    <VerticalStackLayout VerticalOptions="Center">
-                                        <ImageButton Source="Create.png"
-                                                     WidthRequest="20"
-                                                     HeightRequest="20"
-                                                     Clicked="OnEditFlashcardSetClicked"
-                                                     CommandParameter="{Binding .}" />
-                                        <Label Text="Edit" HorizontalOptions="Center" />
-                                    </VerticalStackLayout>
-                                    <VerticalStackLayout VerticalOptions="Center">
-                                        <ImageButton Source="Delete.png"
-                                                     WidthRequest="20"
-                                                     HeightRequest="20"
-                                                     Clicked="OnDeleteFlashcardSetClicked"
-                                                     CommandParameter="{Binding .}" />
-                                        <Label Text="Delete" HorizontalOptions="Center" />
-                                    </VerticalStackLayout>
-                                </StackLayout>
-                            </Grid>
+                                    <StackLayout Grid.Column="1" 
+                                                 Orientation="Horizontal" 
+                                                 Spacing="15"
+                                                 VerticalOptions="Center">
+
+                                        <VerticalStackLayout>
+                                            <ImageButton Source="create.png"
+                                                         WidthRequest="24"
+                                                         HeightRequest="24"
+                                                         BackgroundColor="Transparent"
+                                                         Clicked="OnEditFlashcardSetClicked"
+                                                         CommandParameter="{Binding .}" />
+                                            <Label Text="Edit"
+                                                   FontSize="10"
+                                                   HorizontalOptions="Center" 
+                                                   TextColor="#3B82F6" />
+                                        </VerticalStackLayout>
+
+                                        <VerticalStackLayout>
+                                            <ImageButton Source="delete.png"
+                                                         WidthRequest="24"
+                                                         HeightRequest="24"
+                                                         BackgroundColor="Transparent"
+                                                         Clicked="OnDeleteFlashcardSetClicked"
+                                                         CommandParameter="{Binding .}" />
+                                            <Label Text="Delete"
+                                                   FontSize="10"
+                                                   HorizontalOptions="Center" 
+                                                   TextColor="#EF4444" />
+                                        </VerticalStackLayout>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-            </StackLayout>
+            </VerticalStackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

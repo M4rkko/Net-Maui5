@@ -2,20 +2,31 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp5.Views.FlashcardsPlay"
-             Title="FlashcardsPlay">
+             Title="Flashcards Play">
     <ScrollView>
         <VerticalStackLayout Spacing="20" Padding="20">
-            <!--flashcardi küs-->
-            <Label x:Name="questionLabel" FontSize="24" HorizontalOptions="Center" TextColor="Black" />
+            <Grid x:Name="flashcardGrid"
+                  WidthRequest="300"
+                  HeightRequest="200"
+                  BackgroundColor="LightBlue"
+                  HorizontalOptions="Center"
+                  VerticalOptions="Center"
+                  RotationY="0">
+                <Label x:Name="questionLabel"
+                       FontSize="24"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       TextColor="Black" />
+                <Label x:Name="answerLabel"
+                       FontSize="24"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       TextColor="Black"
+                       IsVisible="False" />
+            </Grid>
 
-            <!-- flashcardi vastus, alguses hidden -->
-            <Label x:Name="answerLabel" FontSize="20" HorizontalOptions="Center" IsVisible="False" TextColor="Gray" />
-
-            <!--kuva vastus -->
-            <Button Text="Show Answer" Clicked="OnShowAnswerClicked" /> 
-
-            <!-- järgmine kaart -->
-            <Button Text="Next" Clicked="OnNextClicked" />
+            <Button Text="Šhow Answer" Clicked="OnFlipCardClicked" />
+            <Button Text="Next Card" Clicked="OnNextClicked" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

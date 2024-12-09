@@ -1,66 +1,78 @@
-// FlashcardsPlay.xaml.cs
 using MauiApp5.Models;
 using Microsoft.Maui.Controls;
 using System.Collections.ObjectModel;
 
 namespace MauiApp5.Views
 {
-    public partial class FlashcardsPlay : ContentPage
-    {
-        private ObservableCollection<Flashcard> _flashcards;
-        private int _currentIndex;
-        public FlashcardsPlay(ObservableCollection<Flashcard> flashcards)
-        {
-            InitializeComponent();
-            _flashcards = flashcards;
-            _currentIndex = 0;
+	public partial class FlashcardsPlay : ContentPage
+	{
+		private readonly ObservableCollection<Flashcard> _flashcards;
+		private int _currentIndex;
+		private bool _isShowingQuestion;
 
-            // kuvab esimese flashcardi
-            ShowFlashcard();
-        }
+		public FlashcardsPlay(ObservableCollection<Flashcard> flashcards)
+		{
+			InitializeComponent();
+			_flashcards = flashcards ?? new ObservableCollection<Flashcard>();
+			_currentIndex = 0;
+			_isShowingQuestion = true;
 
-        private void ShowFlashcard()
-        {
-            if (_flashcards.Count > 0)
-            {
-                var currentFlashcard = _flashcards[_currentIndex];
-                questionLabel.Text = currentFlashcard.Question;
-                answerLabel.Text = currentFlashcard.Answer;
-                answerLabel.IsVisible = false; //peidab algul vastuse
-            }
-        }
+			if (_flashcards.Count > 0)
+			{
+				ShowFlashcard();
+			}
+			else
+			{
+				DisplayAlert("No Flashcards", "Please add flashcards to start playing.", "OK");
+			}
+		}
 
-        private void OnShowAnswerClicked(object sender, EventArgs e)
-        {
-            answerLabel.IsVisible = true;
-        }
+		private void ShowFlashcard()
+		{
+			if (_flashcards.Count > 0)
+			{
+				var currentFlashcard = _flashcards[_currentIndex];
+				questionLabel.Text = currentFlashcard.Question;
+				answerLabel.Text = currentFlashcard.Answer;
+				_isShowingQuestion = true;
+				UpdateVisibility();
+			}
+		}
 
-        private async void OnNextClicked(object sender, EventArgs e)
-        {
-            //liigub järgmisele kaardile
-            _currentIndex++;
-            if (_currentIndex >= _flashcards.Count)
-            {
-                // küsib kasutajalt kas restart v avalehele
-                bool restart = await DisplayAlert("Läbi!",
-                    "naaseme avalehele või alustame uuesti?",
-                    "alusta uuesti",
-                    "avalehele");
+		private async void OnFlipCardClicked(object sender, EventArgs e)
+		{
+			// Perform flip animation
+			await flashcardGrid.RotateYTo(90, 250);
+			_isShowingQuestion = !_isShowingQuestion;
+			UpdateVisibility();
+			await flashcardGrid.RotateYTo(0, 250);
+		}
 
-                if(restart)
-                {
-                    _currentIndex = 0; //alustab uuesti
-                }
-                else
-                {
-                    // avalehele
-                    await Navigation.PopToRootAsync();
-                    return;
-                }
-            }
+		private void UpdateVisibility()
+		{
+			questionLabel.IsVisible = _isShowingQuestion;
+			answerLabel.IsVisible = !_isShowingQuestion;
+		}
 
+		private async void OnNextClicked(object sender, EventArgs e)
+		{
+			_currentIndex++;
+			if (_currentIndex >= _flashcards.Count)
+			{
+				bool restart = await DisplayAlert("All Done!", "Restart or go back to the home page?", "Restart", "Home");
 
-            ShowFlashcard();
-        }
-    }
+				if (restart)
+				{
+					_currentIndex = 0; // Restart
+				}
+				else
+				{
+					await Navigation.PopToRootAsync(); // Go back to home
+					return;
+				}
+			}
+
+			ShowFlashcard();
+		}
+	}
 }

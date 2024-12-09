@@ -2,17 +2,30 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp5.Views.HomePage"
-             xmlns:local="clr-namespace:MauiApp5"
-             Title="Appi nimi???">
+             Title="Study with Flashcards">
 
-    <StackLayout>
-        <local:ContentLayout/>
-        <Label Text="siia teksti/nuppe kütta" 
-               Padding="50" />
-        <Button Text="Play Flashcards/Start playing" 
-                Clicked="OnPlayFlashcardsButtonClicked" 
-                Margin="50,0,50,0" />
-    </StackLayout>
-    
+    <ContentPage.Content>
+        <VerticalStackLayout Spacing="20" Padding="30"
+                             BackgroundColor="#F9FAFB">
+            <Label Text="Welcome to Flashcards Study"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="#333"
+                   HorizontalOptions="Center" />
+
+            <Label Text="Choose an option to get started:"
+                   FontSize="16"
+                   TextColor="#555"
+                   HorizontalOptions="Center" />
+
+            <Button Text="Play Flashcards"
+                    BackgroundColor="#3B82F6"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    Clicked="OnPlayFlashcardsButtonClicked" />
+        </VerticalStackLayout>
+    </ContentPage.Content>
+
 </ContentPage>
-   

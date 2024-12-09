@@ -5,6 +5,12 @@
              x:Class="MauiApp5.App">
     <Application.Resources>
         <ResourceDictionary>
+            <Color x:Key="PrimaryColor">#4CAF50</Color>
+            <Color x:Key="SecondaryColor">#2196F3</Color>
+            <Style TargetType="Button">
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="HeightRequest" Value="50" />
+            </Style>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
