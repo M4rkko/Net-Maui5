@@ -7,7 +7,7 @@
     <ContentPage.Content>
         <ScrollView>
             <VerticalStackLayout Padding="20" Spacing="20"
-                                 BackgroundColor="#F9FAFB">
+                                 >
                 <Label Text="Flashcard Set Name:"
                        FontSize="16"
                        TextColor="#333" />

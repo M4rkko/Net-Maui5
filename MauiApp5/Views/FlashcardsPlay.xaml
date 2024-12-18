@@ -25,7 +25,7 @@
                        IsVisible="False" />
             </Grid>
 
-            <Button Text="Šhow Answer" Clicked="OnFlipCardClicked" />
+            <Button Text="Show Answer" Clicked="OnFlipCardClicked" />
             <Button Text="Next Card" Clicked="OnNextClicked" />
         </VerticalStackLayout>
     </ScrollView>
